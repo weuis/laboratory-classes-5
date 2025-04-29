@@ -1,10 +1,14 @@
-<nav>
-  <ul>
-    <li class="navigation__item"><a href="/">Strona główna</a></li>
-    <li class="navigation__item navigation__cart">
-      <span>Cart</span>
-      <img class="navigation__cart" src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/shopping-cart.svg" alt="Cart">
-      <span class="navigation__badge"><%= cartCount %></span>
-    </li>
+<nav class="navigation">
+  <ul class="navigation__list">
+    <% if (menuLinks.length > 0) { %> <% menuLinks.forEach(link => { %>
+      <li class="navigation__item">
+        <a
+                class="navigation__link <%= activeLinkPath === link.path ? 'navigation__link--active' : '' %>"
+                href="<%= link.path %>"
+        >
+          <%= link.label %>
+        </a>
+      </li>
+    <% }); %> <% } %>
   </ul>
 </nav>
